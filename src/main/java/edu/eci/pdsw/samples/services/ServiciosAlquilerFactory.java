@@ -25,35 +25,20 @@ public class ServiciosAlquilerFactory {
 
     private static Injector testInjector;
 
+    private Injector myBatisInjector(String pathResource) {
+        return createInjector(new XMLMyBatisModule() {
+            @Override
+            protected void initialize() {
+                setClassPathResource(pathResource);
+                bind(ServiciosAlquiler.class).to(ServiciosAlquilerItemsImpl.class);
+            }
+        });
+    }
+
     private ServiciosAlquilerFactory(){
 
-        injector = createInjector(new XMLMyBatisModule() {
-
-                    @Override
-                    protected void initialize() {
-                        install(JdbcHelper.MySQL);
-                        setClassPathResource("mybatis-config.xml");
-                        bind(ServiciosAlquiler.class).to(ServiciosAlquilerItemsImpl.class);
-                    }
-
-                }
-
-        );
-
-        testInjector = createInjector(new XMLMyBatisModule() {
-
-                    @Override
-                    protected void initialize() {
-                        install(JdbcHelper.MySQL);
-                        setClassPathResource("mybatis-config-h2.xml");
-                        bind(ServiciosAlquiler.class).to(ServiciosAlquilerItemsImpl.class);
-                    }
-
-                }
-
-        );
-
-
+        injector = myBatisInjector("mybatis-config.xml");
+        testInjector = myBatisInjector("mybatis-config-h2.xml");
     }
 
     public ServiciosAlquiler getServiciosAlquiler(){
