@@ -8,8 +8,6 @@
 
 1. Actualice el presente proyecto con los Mappers realizados en el ejercicio anterior.
 
-2. Haga la asociación de guice entre el ItemDAO y MyBATISItemDao.
-
 3. Usando como referencia la implementación de ItemDAO: MyBATISItemDao, cree el DAO MyBATIS de Cliente.
 
 4. Declare en la implementación de la capa lógica (ServiciosAlquilerItemsImpl), que a ServiciosItemsImpl se le inyectará un ItemDAO y un ClienteDAO:
