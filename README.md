@@ -8,9 +8,11 @@
 
 1. Actualice el presente proyecto con los Mappers realizados en el ejercicio anterior.
 
-2. Usando como referencia la implementación de ItemDAO: MyBATISItemDao, cree el DAO MyBATIS de Cliente.
+2. Haga la asociación de guice entre el ItemDAO y MyBATISItemDao.
 
-3. Declare en la implementación de la capa lógica (ServiciosAlquilerItemsImpl), que a ServiciosItemsImpl se le inyectará un ItemDAO y un ClienteDAO:
+3. Usando como referencia la implementación de ItemDAO: MyBATISItemDao, cree el DAO MyBATIS de Cliente.
+
+4. Declare en la implementación de la capa lógica (ServiciosAlquilerItemsImpl), que a ServiciosItemsImpl se le inyectará un ItemDAO y un ClienteDAO:
 
     @Inject
     private ItemDAO daoItem;
@@ -18,13 +20,13 @@
     @Inject
     private ClienteDAO daoCliente;
 
-4. Modifique la clase ServiciosAlquilerFactory para que además de hacer 'bind' de la interfaz ServiciosAlquier con la implementación ServiciosAlquilerItemsImpl, haga 'bind' de:
+5. Modifique la clase ServiciosAlquilerFactory para que además de hacer 'bind' de la interfaz ServiciosAlquier con la implementación ServiciosAlquilerItemsImpl, haga 'bind' de:
 	* ItemDAO con MyBATISItemDAO
 	* ClienteDAO con MyBATISClienteDAO
 
-3. Pruebe el programa 'Main' suministrado, y con este rectifique que a través de la capa lógica se pueda consultar un cliente.
+6. Pruebe el programa 'Main' suministrado, y con este rectifique que a través de la capa lógica se pueda consultar un cliente.
 
-4. Implemente el método load de la clase MyBATISDAOCliente, y el método 'consultarCliente' (haciendo uso del DAOCLiente inyectado). Haga un programa para comprobar que la consulta de un cliente se haga correctamente, a través de la capa lógica.
+7. Implemente el método load de la clase MyBATISDAOCliente, y el método 'consultarCliente' (haciendo uso del DAOCLiente inyectado). Haga un programa para comprobar que la consulta de un cliente se haga correctamente, a través de la capa lógica.
 
 
 ## Parte II (para el Jueves)
