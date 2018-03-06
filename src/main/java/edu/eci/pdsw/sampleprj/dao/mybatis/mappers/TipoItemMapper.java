@@ -11,9 +11,9 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface TipoItemMapper {
     
-    public List<TipoItem> getTiposItems();
+    public List<TipoItem> consultarTiposItems();
     
-    public TipoItem getTipoItem(int id);
+    public TipoItem consultarTipoItem(int id);
     
-    public void addTipoItem(String des);
+    public void insertarTipoItem(String des);
 }
