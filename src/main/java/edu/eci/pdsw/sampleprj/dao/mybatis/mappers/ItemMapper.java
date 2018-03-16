@@ -19,5 +19,7 @@ public interface ItemMapper {
     
     public void insertarItem(Item it);
 
-        
+    public List<Item> consultarDisponibles();
+    
+   public void insertarItem(int id,String nombre,String descri,Date fechala,long tarifa,String formato,String genero, int idinit);
 }

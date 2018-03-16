@@ -14,6 +14,8 @@ import edu.eci.pdsw.samples.entities.Item;
 import edu.eci.pdsw.sampleprj.dao.mybatis.mappers.ItemMapper;
 import edu.eci.pdsw.samples.entities.TipoItem;
 import java.sql.SQLException;
+import java.util.List;
+import org.mybatis.guice.transactional.Transactional;
 
 
 
@@ -44,9 +46,17 @@ public class MyBATISItemDAO implements ItemDAO{
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
             throw new PersistenceException("Error al consultar el item "+id,e);
-        }
-        
-        
+        } 
+    }
+    
+    @Override
+    public List<Item> consultarItems() throws PersistenceException {
+        return itemMapper.consultarDisponibles();  
+    }
+    @Transactional
+    @Override
+    public void insertarItem(Item i) throws PersistenceException {
+        itemMapper.insertarItem(i.getId(), i.getNombre(), i.getDescripcion(), i.getFechaLanzamiento(), i.getTarifaxDia(), i.getFormatoRenta(), i.getGenero(), i.getTipo().getID());
     }
     
 }
